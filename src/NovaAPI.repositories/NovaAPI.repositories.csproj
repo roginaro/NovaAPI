@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\NovaAPI.business\NovaAPI.business.csproj" />
+  </ItemGroup>
+
 </Project>

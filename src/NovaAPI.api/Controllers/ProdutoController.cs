@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NovaAPI.repositories.Interfaces;
-using NovaAPI.repositories.Repositories;
+using NovaAPI.business.Models;
+using NovaAPI.services.Interfaces;
 
 namespace NovaAPI.api.Controllers
 {
@@ -9,22 +9,23 @@ namespace NovaAPI.api.Controllers
     [ApiController]
     public class ProdutoController : ControllerBase
     {
-        private readonly IProduto _produto;
+        private readonly IProductService _productService;
 
-        public ProdutoController(IProduto produto)
+        public ProdutoController(IProductService productServiceInstance)
         {
-            _produto = produto;
+            _productService = productServiceInstance;
         }
 
-        // Sugestão: Se é um get da controller produtos, não precisaria de um nome para a rota.
-        // A api ficará mais limpa e intuitiva.
-        [HttpGet(Name = "produto")]
-        public IEnumerable<string> Get()
+        [HttpGet(Name = "Productos")]
+        public async Task<IEnumerable<Product>> GetAll()
         {
-            // Num caso real, não é aconselhável a API atacar diretamente o banco de dados.
-            // API -> Services -> Repositories -> Banco de Dados
-            return _produto.GetAll();
+            return await _productService.GetProducts();
         }
 
+        [HttpGet("{id}", Name = "GetProduct")]
+        public async Task<Product> GetProduct(int id)
+        {
+            return await _productService.GetProduct(id);
+        }
     }
 }

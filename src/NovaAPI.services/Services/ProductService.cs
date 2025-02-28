@@ -11,15 +11,15 @@ namespace NovaAPI.services.Services
 {
     public class ProductService : IProductService
     {
-        private readonly IProductRepository _produto;
+        private readonly IProductRepository _productRepository;
 
-        public ProductService(IProductRepository produto)
+        public ProductService(IProductRepository productRepository)
         {
-            _produto = produto;
+            _productRepository = productRepository;
         }
         public async Task<IEnumerable<Product>> GetProducts()
         {
-            return await _produto.GetAll();
+            return await _productRepository.GetAll();
         }
 
         public Task<Product> AddProduct(Product product)
@@ -34,7 +34,7 @@ namespace NovaAPI.services.Services
 
         public Task<Product> GetProduct(int id)
         {
-            throw new NotImplementedException();
+            return _productRepository.GetById(id);
         }
 
         public Task<Product> UpdateProduct(Product product)

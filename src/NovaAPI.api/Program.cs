@@ -1,3 +1,4 @@
+using NovaAPI.api.Configuration;
 using NovaAPI.repositories.Interfaces;
 using NovaAPI.repositories.Repositories;
 
@@ -15,7 +16,7 @@ builder.Services.AddSwaggerGen();
 // Lembre: A injeção de dependência é feita por camada, então você pode ter uma extension para cada camada
 // Lembre 2: As extensions podem ser criadas em um projeto separado, por exemplo, NovaAPI.infra mas não é aconselhável pois criará um acoplamento entre os projetos
 // Lembre 3: Normalmente criamos extensios por assunto, por exemplo, uma extension para injeção de dependência, outra para configuração de swagger, outra para configuração de banco de dados, etc.
-builder.Services.AddScoped<IProduto, ProdutoRepository>();
+builder.Services.AddNovaAPIConfiguration();
 
 
 var app = builder.Build();
