@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NovaAPI.business.Models;
-using NovaAPI.services.Interfaces.Materials;
+using NovaAPI.Entities.Models;
+using NovaAPI.Services.Interfaces.Materials;
 
 namespace NovaAPI.api.Controllers
 {

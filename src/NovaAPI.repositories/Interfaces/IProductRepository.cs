@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NovaAPI.business.Models;
+using NovaAPI.Entities.Models;
 
-namespace NovaAPI.repositories.Interfaces
+namespace NovaAPI.Repositories.Interfaces
 {
     // Procure sempre dar nomes mais intuitivos para as interfaces.
     // Por exemplo, se você está na camada de repositories, poderia ser IProdutoRepository.

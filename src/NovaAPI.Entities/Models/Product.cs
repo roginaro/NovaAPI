@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NovaAPI.business.Models
+namespace NovaAPI.Entities.Models
 {
     public class Product
     {

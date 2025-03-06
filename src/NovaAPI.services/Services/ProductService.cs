@@ -1,13 +1,13 @@
-﻿using NovaAPI.business.Models;
-using NovaAPI.repositories.Interfaces;
-using NovaAPI.services.Interfaces.Materials;
+﻿using NovaAPI.Entities.Models;
+using NovaAPI.Repositories.Interfaces;
+using NovaAPI.Services.Interfaces.Materials;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NovaAPI.services.Services
+namespace NovaAPI.Services.Services
 {
     public class ProductService : IProductService
     {

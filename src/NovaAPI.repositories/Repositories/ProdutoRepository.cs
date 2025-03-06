@@ -1,13 +1,12 @@
-﻿using NovaAPI.business.Models;
-using NovaAPI.repositories.Interfaces;
-using NovaAPI.repositories.Repositories;
+﻿using NovaAPI.Entities.Models;
+using NovaAPI.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NovaAPI.repositories.Repositories
+namespace NovaAPI.Repositories.Repositories
 {
     public class ProdutoRepository : IProductRepository
     {

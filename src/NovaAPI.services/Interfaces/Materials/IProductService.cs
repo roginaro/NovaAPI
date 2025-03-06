@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NovaAPI.business.Models;
+using NovaAPI.Entities.Models;
 
-namespace NovaAPI.services.Interfaces.Materials
+namespace NovaAPI.Services.Interfaces.Materials
 {
     public interface IProductService
     {

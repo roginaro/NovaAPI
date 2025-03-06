@@ -11,8 +11,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NovaAPI.business\NovaAPI.Entities.csproj" />
+    <ProjectReference Include="..\NovaAPI.Entities\NovaAPI.Entities.csproj" />
+    <ProjectReference Include="..\NovaAPI.repositories\NovaAPI.Repositories.csproj" />
     <ProjectReference Include="..\NovaAPI.services\NovaAPI.Services.csproj" />
+   
   </ItemGroup>
 
 </Project>

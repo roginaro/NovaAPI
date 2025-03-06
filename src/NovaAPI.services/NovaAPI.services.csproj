@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NovaAPI.business\NovaAPI.business.csproj" />
-    <ProjectReference Include="..\NovaAPI.repositories\NovaAPI.repositories.csproj" />
+    <ProjectReference Include="..\NovaAPI.Entities\NovaAPI.Entities.csproj" />
+    <ProjectReference Include="..\NovaAPI.Repositories\NovaAPI.Repositories.csproj" />
   </ItemGroup>
 
   <ItemGroup>
