@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NovaAPI.business.Models;
 
-namespace NovaAPI.services.Interfaces
+namespace NovaAPI.services.Interfaces.Materials
 {
     public interface IProductService
     {

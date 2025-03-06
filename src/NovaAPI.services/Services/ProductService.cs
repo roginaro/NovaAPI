@@ -1,6 +1,6 @@
 ﻿using NovaAPI.business.Models;
 using NovaAPI.repositories.Interfaces;
-using NovaAPI.services.Interfaces;
+using NovaAPI.services.Interfaces.Materials;
 using System;
 using System.Collections.Generic;
 using System.Linq;

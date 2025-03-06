@@ -11,4 +11,10 @@
     <ProjectReference Include="..\NovaAPI.repositories\NovaAPI.repositories.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Interfaces\Authentication\" />
+    <Folder Include="Interfaces\CancelSalles\" />
+    <Folder Include="Interfaces\Salles\" />
+  </ItemGroup>
+
 </Project>
