@@ -1,18 +1,16 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using NovaAPI.Repositories.Interfaces;
 using NovaAPI.Repositories.Repositories;
 using NovaAPI.Services.Interfaces.Materials;
 using NovaAPI.Services.Services;
-using Swashbuckle.AspNetCore.SwaggerGen;
-
-namespace NovaAPI.api.Configuration
+namespace NovaAPI.Services.Configuration
 {
-    public static class NovaAPIConfiguration
+    public static class ServiceConfiguration
     {
-        public static IServiceCollection AddNovaAPIConfiguration(this IServiceCollection services)
+        public static IServiceCollection AddServicesConfiguration(this IServiceCollection services)
         {
-            services.AddScoped<IProductRepository, ProdutoRepository>();
             services.AddScoped<IProductService, ProductService>();
             return services;
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NovaAPI.Entities.Models
 {
-    class Order
+    public class Order
     {
         public int OrderId { get; set; }
         public DateTime OrderDate { get; set; }
