@@ -10,7 +10,7 @@ using NovaAPI.Repositories.Contexts;
 namespace NovaAPI.Repositories.Migrations.NovaAPIDb
 {
     [DbContext(typeof(NovaAPIDbContext))]
-    [Migration("20250311154437_InitialMigration")]
+    [Migration("20250311192037_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />

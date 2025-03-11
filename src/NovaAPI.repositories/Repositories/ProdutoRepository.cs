@@ -27,10 +27,6 @@ namespace NovaAPI.Repositories.Repositories
         public async Task<IEnumerable<Product>> GetAll()
         {
             var products = await _dbSet.ToListAsync();
-            if (products == null)
-            {
-                throw new Exception("No products found");
-            }
             return products;
         }
 

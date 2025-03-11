@@ -15,7 +15,6 @@ namespace NovaAPI.Repositories.Configurations
 
             builder.Property(x => x.ProductId)
             .HasColumnName("PRODUCT_ID")
-            .HasColumnType(DatabaseTypeConstant.UniqueIdentifier)
             .HasColumnType("INTEGER")
             .IsRequired();
 
