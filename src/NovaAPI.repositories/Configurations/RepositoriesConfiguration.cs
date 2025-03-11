@@ -12,16 +12,19 @@ namespace NovaAPI.Repositories.Configuration
 {
     public static class RepositoriesConfiguration
     {
-        public static IServiceCollection AddRepositoriesConfiguration(this IServiceCollection services)
+        public static IServiceCollection AddRepositoriesConfiguration(this IServiceCollection services, DatabaseSettings databaseSettings)
         {
+            services.AddApplicationRepositories(databaseSettings);
+
             services.AddScoped<IProductRepository, ProdutoRepository>();
+
+
             return services;
         }
         private static IServiceCollection AddApplicationRepositories(this IServiceCollection services, DatabaseSettings databaseSettings)
         {
-            services.AddDbContext<NovaAPIDbContext>(o =>
+            services.AddDbContext<NovaAPIDbContext>(options =>
             {
-                
                 var connection = new SqliteConnection(databaseSettings.ConnectionStringNovaAPI);
                 connection.CreateCollation("LATIN1_GENERAL_CI_AI", (x, y) =>
                 {
@@ -33,7 +36,7 @@ namespace NovaAPI.Repositories.Configuration
                     return string.Compare(x, y, CultureInfo.CurrentCulture, CompareOptions.IgnoreCase | CompareOptions.IgnoreNonSpace);
                 });
 
-                o.UseSqlite(connection);
+                options.UseSqlite(connection);
             });
 
             return services;

@@ -11,7 +11,7 @@ AppSettings appSettings = configuration.GetSection(nameof(AppSettings)).Get<AppS
 #endregion Settings configuration
 
 builder.Services.AddServicesConfiguration();
-builder.Services.AddRepositoriesConfiguration();
+builder.Services.AddRepositoriesConfiguration(appSettings.DatabaseSettings);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
