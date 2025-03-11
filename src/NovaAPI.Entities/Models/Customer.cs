@@ -1,4 +1,6 @@
-﻿namespace NovaAPI.Entities.Models
+﻿using System.Text.Json.Serialization;
+
+namespace NovaAPI.Entities.Models
 {
     public class Customer
     {
@@ -9,5 +11,7 @@
         public string Phone { get; set; }
         public string Address { get; set; }
 
+        [JsonIgnore]
+        public ICollection<Order> Order { get; set; }
     }
 }

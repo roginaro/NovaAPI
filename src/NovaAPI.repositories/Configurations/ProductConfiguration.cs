@@ -8,7 +8,7 @@ namespace NovaAPI.Repositories.Configurations
     {
         public void Configure(EntityTypeBuilder<Product> builder)
         {
-            builder.ToTable("Products");
+            builder.ToTable("TB_PRODUCT");
 
             builder.HasKey(x => x.ProductId)
             .HasName("PK_TB_PRODUCT");
@@ -40,6 +40,13 @@ namespace NovaAPI.Repositories.Configurations
             .HasColumnType(DatabaseTypeConstant.Varchar)
             .HasMaxLength(200);
 
+            builder.HasIndex(x => x.ProductId).HasDatabaseName("IDX_TB_PRODUCT_01");
+
+            builder.HasOne(p => p.Order)
+            .WithMany(o => o.Products)
+            .HasForeignKey(p => p.OrderId)
+            .HasConstraintName("FK_TB_PRODUCT_02")
+            .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }
