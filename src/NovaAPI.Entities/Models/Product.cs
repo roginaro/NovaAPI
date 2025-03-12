@@ -17,6 +17,7 @@ namespace NovaAPI.Entities.Models
         public string Image { get; set; }
 
         [JsonIgnore]
-        public Order Order { get; set; }
+        public ICollection<OrderProduct> OrderProducts { get; set; }
+
     }
 }

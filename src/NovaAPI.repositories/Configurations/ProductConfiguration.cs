@@ -26,6 +26,7 @@ namespace NovaAPI.Repositories.Configurations
             .IsRequired();
 
             builder.Property(x => x.Description)
+                .HasColumnName("DESCRIPTION")
             .HasColumnType(DatabaseTypeConstant.Varchar)
             .UseCollation(DatabaseTypeConstant.Collate)
             .HasMaxLength(200);
@@ -37,16 +38,12 @@ namespace NovaAPI.Repositories.Configurations
             .IsRequired();
 
             builder.Property(x => x.Image)
+                .HasColumnName("IMAGE")
             .HasColumnType(DatabaseTypeConstant.Varchar)
             .HasMaxLength(200);
 
             builder.HasIndex(x => x.ProductId).HasDatabaseName("IDX_TB_PRODUCT_01");
 
-            builder.HasOne(p => p.Order)
-            .WithMany(o => o.Products)
-            .HasForeignKey(p => p.OrderId)
-            .HasConstraintName("FK_TB_PRODUCT_02")
-            .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

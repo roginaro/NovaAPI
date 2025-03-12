@@ -16,9 +16,9 @@ namespace NovaAPI.Entities.Models
         public int CustomerId { get; set; }
 
         [JsonIgnore]
-        public ICollection<Product> Products { get; set; }
+        public ICollection<OrderProduct> OrderProducts { get; set; }
 
         [JsonIgnore]
-        public ICollection<Customer> Customers { get; set; }
+        public Customer Customer { get; set; }
     }
 }

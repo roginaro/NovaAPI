@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="ConnectionStringNovaAPI.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="1"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="3101"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="TB_PRODUCT" custom_title="0" dock_id="6" table="4,10:mainTB_PRODUCT"/><dock_state state="000000ff00000000fd0000000100000002000002320000024cfc0100000006fb000000160064006f0063006b00420072006f00770073006500310100000000000004270000000000000000fb000000160064006f0063006b00420072006f00770073006500320100000000000004270000000000000000fb000000160064006f0063006b00420072006f00770073006500330100000000000005a70000000000000000fb000000160064006f0063006b00420072006f00770073006500340100000000000005a70000000000000000fb000000160064006f0063006b00420072006f00770073006500350100000000000005a70000000000000000fb000000160064006f0063006b00420072006f00770073006500360100000000000002320000011e00ffffff000002320000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="TB_CUSTOMER" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="91"/><column index="2" value="109"/><column index="3" value="78"/><column index="4" value="156"/><column index="5" value="101"/><column index="6" value="101"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="TB_PRODUCT" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="83"/><column index="2" value="52"/><column index="3" value="78"/><column index="4" value="109"/><column index="5" value="54"/><column index="6" value="93"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1*">INSERT INTO TB_CUSTOMER (NAME, DOCUMENT, EMAIL, PHONE, ADDRESS) VALUES ('John Doe', '123456789', 'john@example.com', '123-456-7890', '123 Main St');
+INSERT INTO TB_CUSTOMER (NAME, DOCUMENT, EMAIL, PHONE, ADDRESS) VALUES ('Jane Smith', '987654321', 'jane@example.com', '987-654-3210', '456 Elm St');
+INSERT INTO TB_CUSTOMER (NAME, DOCUMENT, EMAIL, PHONE, ADDRESS) VALUES ('Alice Johnson', '456789123', 'alice@example.com', '456-789-1230', '789 Oak St');
+INSERT INTO TB_CUSTOMER (NAME, DOCUMENT, EMAIL, PHONE, ADDRESS) VALUES ('Bob Brown', '321654987', 'bob@example.com', '321-654-9870', '101 Pine St');
+INSERT INTO TB_CUSTOMER (NAME, DOCUMENT, EMAIL, PHONE, ADDRESS) VALUES ('Charlie Davis', '654321789', 'charlie@example.com', '654-321-7890', '202 Maple St');
+
+
+
+
+
+
+INSERT INTO TB_PRODUCT (OrderId, NAME, DESCRIPTION, PRICE, IMAGE) VALUES (1, 'Product1', 'Description1', 19.99, 'image1.jpg');
+INSERT INTO TB_PRODUCT (OrderId, NAME, DESCRIPTION, PRICE, IMAGE) VALUES (1, 'Product2', 'Description2', 29.99, 'image2.jpg');
+INSERT INTO TB_PRODUCT (OrderId, NAME, DESCRIPTION, PRICE, IMAGE) VALUES (2, 'Product3', 'Description3', 39.99, 'image3.jpg');
+INSERT INTO TB_PRODUCT (OrderId, NAME, DESCRIPTION, PRICE, IMAGE) VALUES (2, 'Product4', 'Description4', 49.99, 'image4.jpg');
+INSERT INTO TB_PRODUCT (OrderId, NAME, DESCRIPTION, PRICE, IMAGE) VALUES (3, 'Product5', 'Description5', 59.99, 'image5.jpg');
+INSERT INTO TB_PRODUCT (OrderId, NAME, DESCRIPTION, PRICE, IMAGE) VALUES (3, 'Product6', 'Description6', 69.99, 'image6.jpg');
+INSERT INTO TB_PRODUCT (OrderId, NAME, DESCRIPTION, PRICE, IMAGE) VALUES (4, 'Product7', 'Description7', 79.99, 'image7.jpg');
+INSERT INTO TB_PRODUCT (OrderId, NAME, DESCRIPTION, PRICE, IMAGE) VALUES (4, 'Product8', 'Description8', 89.99, 'image8.jpg');
+INSERT INTO TB_PRODUCT (OrderId, NAME, DESCRIPTION, PRICE, IMAGE) VALUES (5, 'Product9', 'Description9', 99.99, 'image9.jpg');
+INSERT INTO TB_PRODUCT (OrderId, NAME, DESCRIPTION, PRICE, IMAGE) VALUES (5, 'Product10', 'Description10', 109.99, 'image10.jpg');
+INSERT INTO TB_PRODUCT (OrderId, NAME, DESCRIPTION, PRICE, IMAGE) VALUES (6, 'Product11', 'Description11', 119.99, 'image11.jpg');
+INSERT INTO TB_PRODUCT (OrderId, NAME, DESCRIPTION, PRICE, IMAGE) VALUES (6, 'Product12', 'Description12', 129.99, 'image12.jpg');
+INSERT INTO TB_PRODUCT (OrderId, NAME, DESCRIPTION, PRICE, IMAGE) VALUES (7, 'Product13', 'Description13', 139.99, 'image13.jpg');
+INSERT INTO TB_PRODUCT (OrderId, NAME, DESCRIPTION, PRICE, IMAGE) VALUES (7, 'Product14', 'Description14', 149.99, 'image14.jpg');
+INSERT INTO TB_PRODUCT (OrderId, NAME, DESCRIPTION, PRICE, IMAGE) VALUES (8, 'Product15', 'Description15', 159.99, 'image15.jpg');
+INSERT INTO TB_PRODUCT (OrderId, NAME, DESCRIPTION, PRICE, IMAGE) VALUES (8, 'Product16', 'Description16', 169.99, 'image16.jpg');
+INSERT INTO TB_PRODUCT (OrderId, NAME, DESCRIPTION, PRICE, IMAGE) VALUES (9, 'Product17', 'Description17', 179.99, 'image17.jpg');
+INSERT INTO TB_PRODUCT (OrderId, NAME, DESCRIPTION, PRICE, IMAGE) VALUES (9, 'Product18', 'Description18', 189.99, 'image18.jpg');
+INSERT INTO TB_PRODUCT (OrderId, NAME, DESCRIPTION, PRICE, IMAGE) VALUES (10, 'Product19', 'Description19', 199.99, 'image19.jpg');
+INSERT INTO TB_PRODUCT (OrderId, NAME, DESCRIPTION, PRICE, IMAGE) VALUES (10, 'Product20', 'Description20', 209.99, 'image20.jpg');
+
+
+
+INSERT INTO TB_ORDER (DATE, NUMBER, STATUS, CustomerId) VALUES ('2025-03-12', 'ORD001', 'Shipped', 1);
+INSERT INTO TB_ORDER (DATE, NUMBER, STATUS, CustomerId) VALUES ('2025-03-13', 'ORD002', 'Processing', 2);
+INSERT INTO TB_ORDER (DATE, NUMBER, STATUS, CustomerId) VALUES ('2025-03-14', 'ORD003', 'Delivered', 3);</sql><current_tab id="0"/></tab_sql></sqlb_project>
