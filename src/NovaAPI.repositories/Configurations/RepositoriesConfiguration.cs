@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using NovaAPI.Entities.Models;
 using NovaAPI.Repositories.Contexts;
 using NovaAPI.Repositories.Interfaces;
 using NovaAPI.Repositories.Repositories;
@@ -16,8 +17,13 @@ namespace NovaAPI.Repositories.Configuration
         {
             services.AddApplicationRepositories(databaseSettings);
 
-            services.AddScoped<IProductRepository, ProdutoRepository>();
-
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddScoped<IRepository<Customer>, CustomerRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IRepository<Product>, ProductRepository>();
+            services.AddScoped<IRepository<Order>, OrderRepository>();
+            services.AddScoped<IRepository<OrderProduct>, OrderProductRepository>();
+            
 
             return services;
         }

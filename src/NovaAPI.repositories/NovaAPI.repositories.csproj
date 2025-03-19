@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <None Include="Contexts\NovaAPIDbContext.cs" />
+    <None Include="Interfaces\IOrderRepository.cs" />
   </ItemGroup>
 
   <ItemGroup>

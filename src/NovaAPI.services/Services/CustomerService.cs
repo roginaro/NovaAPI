@@ -4,29 +4,26 @@ using NovaAPI.Entities.Models;
 using NovaAPI.Repositories.Interfaces;
 using NovaAPI.Repositories.Repositories;
 using NovaAPI.Services.Interfaces.Materials;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace NovaAPI.Services.Services
 {
-    public class ProductService : BaseService<Product>, IProductService
+    public class CustomerService : BaseService<Customer>, ICustomerService
     {
-        protected readonly IProductRepository _productRepository;
-        public ProductService(IRepository<Product> entityRepository, IValidator<Product> productValidator, IProductRepository productRepository) : base(entityRepository, productValidator)
+        protected readonly ICustomerRepository _customerRepository;
+
+        public CustomerService(IRepository<Customer> entityRepository, IValidator<Customer> costumerValidator, ICustomerRepository customerRepository) : base(entityRepository, costumerValidator)
         {
-            _productRepository = productRepository;
+            _customerRepository = customerRepository;
         }
 
-        public async Task<ServiceOutput<Product>> Update(Product product)
+        public async Task<ServiceOutput<Customer>> Update(Customer customer)
         {
-            ServiceOutput<Product> serviceOutput = new();
-            var validationResult = _entityValidator.Validate(product);
+            ServiceOutput<Customer> serviceOutput = new();
+            var validationResult = _entityValidator.Validate(customer);
             if (!validationResult.IsValid)
             {
-                serviceOutput.Data = product;
+                serviceOutput.Data = customer;
                 serviceOutput.Message = "Ocorreram erros na estrutura de validação";
                 serviceOutput.Errors = (from x in validationResult.Errors
                                         select new ErrorBase()
@@ -35,7 +32,7 @@ namespace NovaAPI.Services.Services
                                         }).ToList();
                 return serviceOutput;
             }
-            var repositoryOutput = await _productRepository.Update(product);
+            var repositoryOutput = await _customerRepository.Update(customer);
             if (!repositoryOutput.Success)
             {
                 serviceOutput.Message = repositoryOutput.Message;

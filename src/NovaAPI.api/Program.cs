@@ -1,6 +1,8 @@
 using NovaAPI.Services.Configuration;
 using NovaAPI.Repositories.Settings;
 using NovaAPI.Repositories.Configuration;
+using NovaAPI.Services.Interfaces.Materials;
+using NovaAPI.Services.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +14,8 @@ AppSettings appSettings = configuration.GetSection(nameof(AppSettings)).Get<AppS
 
 builder.Services.AddServicesConfiguration();
 builder.Services.AddRepositoriesConfiguration(appSettings.DatabaseSettings);
+
+
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
