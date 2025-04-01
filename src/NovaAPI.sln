@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35818.85
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovaAPI.Api", "NovaAPI.api\NovaAPI.Api.csproj", "{BB808006-07A6-4D0B-9547-9FDC0099B87C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NovaAPI.Api", "NovaAPI.api\NovaAPI.Api.csproj", "{BB808006-07A6-4D0B-9547-9FDC0099B87C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovaAPI.Repositories", "NovaAPI.repositories\NovaAPI.Repositories.csproj", "{3A69B86F-FC62-461C-9B3F-2FFB15289CF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NovaAPI.Repositories", "NovaAPI.repositories\NovaAPI.Repositories.csproj", "{3A69B86F-FC62-461C-9B3F-2FFB15289CF5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovaAPI.Services", "NovaAPI.services\NovaAPI.Services.csproj", "{DB3654B4-1C95-3EC3-4612-BC1FB0B4D021}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NovaAPI.Services", "NovaAPI.services\NovaAPI.Services.csproj", "{DB3654B4-1C95-3EC3-4612-BC1FB0B4D021}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovaAPI.Entities", "NovaAPI.Entities\NovaAPI.Entities.csproj", "{146864C4-4D3A-E419-2D95-06E954D9549A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NovaAPI.Entities", "NovaAPI.Entities\NovaAPI.Entities.csproj", "{146864C4-4D3A-E419-2D95-06E954D9549A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NovaAPI.Tests", "TesteNovaAPI\NovaAPI.Tests.csproj", "{3D59C398-FBAB-4A80-9B7D-914ADA713A06}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{146864C4-4D3A-E419-2D95-06E954D9549A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{146864C4-4D3A-E419-2D95-06E954D9549A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{146864C4-4D3A-E419-2D95-06E954D9549A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D59C398-FBAB-4A80-9B7D-914ADA713A06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D59C398-FBAB-4A80-9B7D-914ADA713A06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D59C398-FBAB-4A80-9B7D-914ADA713A06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D59C398-FBAB-4A80-9B7D-914ADA713A06}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

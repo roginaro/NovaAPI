@@ -12,10 +12,10 @@ namespace NovaAPI.Services.Services
         protected readonly IRepository<T> _entityRepository;
         protected readonly IValidator<T> _entityValidator;
 
-        public BaseService(IRepository<T> entityRepository, IValidator<T> productValidator)
+        public BaseService(IRepository<T> entityRepository, IValidator<T> entityValidator)
         {
             _entityRepository = entityRepository;
-            _entityValidator = productValidator;
+            _entityValidator = entityValidator;
         }
         public async Task<IEnumerable<T>> GetAll()
         {
