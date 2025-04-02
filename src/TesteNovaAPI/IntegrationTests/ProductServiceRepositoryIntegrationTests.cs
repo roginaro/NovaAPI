@@ -33,27 +33,23 @@ namespace NovaAPI.Tests.IntegrationTests
             using (var context = new NovaAPIDbContext(_options))
             {
                 var repository = new ProductRepository(context);
-                //var validatorMock = new Mock<FluentValidation.IValidator<Product>>();
-                //validatorMock.Setup(v => v.Validate(It.IsAny<Product>()))
-                //    .Returns(new FluentValidation.Results.ValidationResult()); // Sem erros de validação
-
                 var productValidation = new ProductValidation();
 
                 var service = new ProductService(repository, productValidation, repository); // Passando o ProductRepository duas vezes
 
-                var product = new Product { Name = "Test Product", Description = "Test Description", Price = 10.0m, Image = "imag35.jpg" };
-                var product2 = new Product { Name = "Test Product", Description = "Test Description", Price = 10.0m ,Image = "imag34.jpr" };
+                var productValid = new Product { Name = "Test Product", Description = "Test Description", Price = 10.0m, Image = "imag35.jpg" };
+                var productNameNull = new Product { Name = "Test Product", Description = "Test Description", Price = 10.0m, Image = "imag34.jpr" };
 
                 // Act
-                var result = await service.Add(product);
-                var result2 = await service.Add(product2);
+                var resultValid = await service.Add(productValid);
+                var resultNameNull = await service.Add(productNameNull);
                 await context.SaveChangesAsync();
 
                 // Assert
-                result.Success.Should().BeTrue();
-                result2.Success.Should().BeTrue();
-                context.Set<Product>().Should().Contain(product);
-                context.Set<Product>().Should().Contain(product2);
+                resultValid.Success.Should().BeTrue();
+                resultNameNull.Success.Should().BeTrue();
+                context.Set<Product>().Should().Contain(productValid);
+                context.Set<Product>().Should().Contain(productNameNull);
             }
         }
     }

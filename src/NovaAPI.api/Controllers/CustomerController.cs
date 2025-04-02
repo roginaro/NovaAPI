@@ -6,7 +6,7 @@ using NovaAPI.Services.Interfaces.Materials;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
 
-namespace NovaAPI.api.Controllers
+namespace NovaAPI.Api.Controllers
 {
     [Route("api/customer")]
 

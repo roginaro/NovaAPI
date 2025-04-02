@@ -5,7 +5,7 @@ using NovaAPI.Entities.Models;
 using NovaAPI.Services.Interfaces.Materials;
 using NovaAPI.Services.Services;
 
-namespace NovaAPI.api.Controllers
+namespace NovaAPI.Api.Controllers
 {
     [Route("api/product")]
     [ApiController]

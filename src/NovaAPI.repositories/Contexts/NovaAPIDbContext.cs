@@ -9,6 +9,7 @@ public class NovaAPIDbContext : DbContext
     public NovaAPIDbContext(DbContextOptions<NovaAPIDbContext> options)
         : base(options)
     {
+        
     }
     public DbSet<Customer> Customers { get; set; }
     public DbSet<Order> Order { get; set; }

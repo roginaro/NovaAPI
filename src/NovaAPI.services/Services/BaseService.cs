@@ -9,8 +9,8 @@ namespace NovaAPI.Services.Services
 {
     public abstract class BaseService<T> : IService<T> where T : class
     {
-        protected readonly IRepository<T> _entityRepository;
-        protected readonly IValidator<T> _entityValidator;
+        public readonly IRepository<T> _entityRepository;
+        public readonly IValidator<T> _entityValidator;
 
         public BaseService(IRepository<T> entityRepository, IValidator<T> entityValidator)
         {

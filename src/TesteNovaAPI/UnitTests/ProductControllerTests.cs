@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Moq;
-using NovaAPI.api.Controllers;
+using NovaAPI.Api.Controllers;
 using NovaAPI.Api.ViewModels;
 using NovaAPI.Entities.Base;
 using NovaAPI.Entities.Models;
