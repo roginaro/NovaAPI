@@ -5,7 +5,7 @@ using NovaAPI.Repositories.Interfaces;
 
 namespace NovaAPI.Repositories.Repositories
 {
-    public class OrderRepository : BaseRepository<Order>
+    public class OrderRepository : BaseRepository<Order>, IOrderRepository 
     {
         public OrderRepository(NovaAPIDbContext context) : base(context)
         {

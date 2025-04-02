@@ -13,8 +13,8 @@ namespace NovaAPI.Services.Configuration
         {
             services.AddScoped<ICustomerService, CustomerService>();
             services.AddScoped<IService<Customer>, CustomerService>();
-            services.AddScoped<IService<Order>, OrderService>();
-            services.AddScoped<IService<OrderProduct>, OrderProductService>();
+            //services.AddScoped<IService<Order>, OrderService>();
+            //services.AddScoped<IService<OrderProduct>, OrderProductService>();
             services.AddScoped<IService<Product>, ProductService>();
             services.AddScoped<IValidator<Order>, OrderValidation>();
             services.AddScoped<IValidator<Customer>, CustomerValidation>();

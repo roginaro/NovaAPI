@@ -8,13 +8,12 @@ using NovaAPI.Services.Interfaces.Materials;
 
 namespace NovaAPI.Services.Services
 {
-    public class CustomerService : BaseService<Customer>, ICustomerService
+    public class CustomerService : BaseService<Customer, ICustomerRepository>, ICustomerService
     {
-        protected readonly ICustomerRepository _customerRepository;
+        private ICustomerRepository _customerRepository => (ICustomerRepository)_entityRepository;
 
-        public CustomerService(IRepository<Customer> entityRepository, IValidator<Customer> costumerValidator, ICustomerRepository customerRepository) : base(entityRepository, costumerValidator)
+        public CustomerService(ICustomerRepository entityRepository, IValidator<Customer> costumerValidator) : base(entityRepository, costumerValidator)
         {
-            _customerRepository = customerRepository;
         }
 
         public async Task<ServiceOutput<Customer>> Update(Customer customer)

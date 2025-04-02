@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace NovaAPI.Services.Services
 {
-    class OrderProductService : BaseService<OrderProduct>
-    {
-        public OrderProductService(IRepository<OrderProduct> orderProductRepository, IValidator<OrderProduct> orderProductValidator) : base(orderProductRepository, orderProductValidator)
-        {
-        }
-    }
+    //public class OrderProductService : BaseService<OrderProduct, IOrderProductRepository>, IOrderProductService
+    //{
+    //    public OrderProductService(IOrderProductRepository orderProductRepository, IValidator<OrderProduct> orderProductValidator) : base(orderProductRepository, orderProductValidator)
+    //    {
+    //    }
+    //}
 }
