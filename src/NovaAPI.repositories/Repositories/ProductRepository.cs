@@ -14,9 +14,6 @@ namespace NovaAPI.Repositories.Repositories
 
         public async Task<RepositoryOutput<Product>> GetByEntity(Product product)
         {
-            _ = await Add(product);
-
-
             var entityReturn = await _dbSet.FindAsync(product.ProductId);
             if (entityReturn == null)
             {

@@ -1,12 +1,23 @@
-using NovaAPI.repositories.Interfaces;
-using NovaAPI.repositories.Repositories;
+using NovaAPI.Services.Configuration;
+using NovaAPI.Repositories.Settings;
+using NovaAPI.Repositories.Configuration;
+using NovaAPI.Services.Interfaces.Materials;
+using NovaAPI.Services.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+#region Settings configuration
+var configuration = builder.Configuration;
+builder.Services.Configure<AppSettings>(configuration.GetSection(nameof(AppSettings)));
+AppSettings appSettings = configuration.GetSection(nameof(AppSettings)).Get<AppSettings>();
+#endregion Settings configuration
+
+builder.Services.AddServicesConfiguration();
+builder.Services.AddRepositoriesConfiguration(appSettings.DatabaseSettings);
+
+
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -15,13 +26,10 @@ builder.Services.AddSwaggerGen();
 // Lembre: A injeção de dependência é feita por camada, então você pode ter uma extension para cada camada
 // Lembre 2: As extensions podem ser criadas em um projeto separado, por exemplo, NovaAPI.infra mas não é aconselhável pois criará um acoplamento entre os projetos
 // Lembre 3: Normalmente criamos extensios por assunto, por exemplo, uma extension para injeção de dependência, outra para configuração de swagger, outra para configuração de banco de dados, etc.
-builder.Services.AddScoped<IProduto, ProdutoRepository>();
-
 
 var app = builder.Build();
 
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
