@@ -35,7 +35,7 @@ namespace NovaAPI.Tests.IntegrationTests
                 var repository = new ProductRepository(context);
                 var productValidation = new ProductValidation();
 
-                var service = new ProductService(repository, productValidation, repository); // Passando o ProductRepository duas vezes
+                var service = new ProductService(repository, productValidation); // Passando o ProductRepository duas vezes
 
                 var productValid = new Product { Name = "Test Product", Description = "Test Description", Price = 10.0m, Image = "imag35.jpg" };
                 var productNameNull = new Product { Name = "Test Product", Description = "Test Description", Price = 10.0m, Image = "imag34.jpr" };

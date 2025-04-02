@@ -14,10 +14,9 @@ namespace NovaAPI.Services.Services
 {
     public class ProductService : BaseService<Product>, IProductService
     {
-        protected readonly IProductRepository _productRepository;
-        public ProductService(IRepository<Product> entityRepository, IValidator<Product> productValidator, IProductRepository productRepository) : base(entityRepository, productValidator)
+        private IProductRepository _productRepository => (IProductRepository)_entityRepository;
+        public ProductService(IProductRepository productRepository, IValidator<Product> productValidator) : base(productRepository, productValidator)
         {
-            _productRepository = productRepository;
         }
 
         public async Task<ServiceOutput<Product>> Update(Product product)
