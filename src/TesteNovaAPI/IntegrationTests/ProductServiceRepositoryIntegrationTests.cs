@@ -33,9 +33,7 @@ namespace NovaAPI.Tests.IntegrationTests
             using (var context = new NovaAPIDbContext(_options))
             {
                 var repository = new ProductRepository(context);
-                //var validatorMock = new Mock<FluentValidation.IValidator<Product>>();
-                //validatorMock.Setup(v => v.Validate(It.IsAny<Product>()))
-                //    .Returns(new FluentValidation.Results.ValidationResult()); // Sem erros de validação
+               
 
                 var productValidation = new ProductValidation();
 

@@ -11,7 +11,6 @@ namespace NovaAPI.Repositories.Repositories
         public ProductRepository(NovaAPIDbContext context) : base(context)
         {
         }
-
         public async Task<RepositoryOutput<Product>> GetByEntity(Product product)
         {
             var entityReturn = await _dbSet.FindAsync(product.ProductId);

@@ -7,6 +7,7 @@ namespace NovaAPI.Services.Validations
     {
         public CustomerValidation()
         {
+            //
         }
     }
 }
