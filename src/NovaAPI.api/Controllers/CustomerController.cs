@@ -12,9 +12,9 @@ namespace NovaAPI.Api.Controllers
     [ApiController]
     public class CustomerController : ControllerBase
     {
-        private readonly ICustomerService _customerService;
+        private readonly IService<Customer> _customerService;
 
-        public CustomerController(ICustomerService customerService)
+        public CustomerController(IService<Customer> customerService)
         {
             _customerService = customerService;
         }

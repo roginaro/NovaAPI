@@ -10,9 +10,9 @@ namespace NovaAPI.Api.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly IProductService _productService;
+        private readonly IService<Product> _productService;
 
-        public ProductController(IProductService productServiceInstance)
+        public ProductController(IService<Product> productServiceInstance)
         {
             _productService = productServiceInstance;
         }

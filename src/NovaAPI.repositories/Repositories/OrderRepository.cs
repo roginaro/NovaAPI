@@ -10,9 +10,30 @@ namespace NovaAPI.Repositories.Repositories
         {
         }
 
-        public override Task<RepositoryOutput<Order>> Update(Order entity)
+        public async Task<RepositoryOutput<Order>> GetByEntity(Order order)
         {
-            throw new NotImplementedException();
+            var entityReturn = await _dbSet.FindAsync(order.OrderId);
+            if (entityReturn == null)
+            {
+                return new RepositoryOutput<Order>() { Success = false, Message = "Entity not found" };
+            }
+            return new RepositoryOutput<Order>() { Success = true, Message = "Add Success", Data = entityReturn };
+
+        }
+        public override async Task<RepositoryOutput<Order>> Update(Order order)
+        {
+            var entityFromDB = await this.GetByEntity(order);
+            if (!entityFromDB.Success)
+            {
+                return new RepositoryOutput<Order>() { Success = false, Message = "Entity not found", Data = order };
+            }
+            var entityEntry = _dbSet.Update(entityFromDB.Data);
+            var returnSavechanges = await _context.SaveChangesAsync();
+            if (returnSavechanges == 0)
+            {
+                return new RepositoryOutput<Order>() { Success = false, Message = "Update failed" };
+            }
+            return new RepositoryOutput<Order>() { Success = true, Message = "Entity updated", Data = entityEntry.Entity };
         }
     }
 
