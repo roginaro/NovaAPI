@@ -4,7 +4,6 @@ using NovaAPI.Entities.Base;
 using NovaAPI.Entities.Models;
 using NovaAPI.Services.Interfaces.Materials;
 using Swashbuckle.AspNetCore.Annotations;
-using System.Net;
 
 namespace NovaAPI.Api.Controllers
 {

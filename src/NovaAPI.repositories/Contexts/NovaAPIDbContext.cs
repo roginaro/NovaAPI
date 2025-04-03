@@ -1,5 +1,5 @@
-﻿using NovaAPI.Entities.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using NovaAPI.Entities.Models;
 using NovaAPI.Repositories.Configurations;
 
 namespace NovaAPI.Repositories.Contexts;
@@ -9,7 +9,7 @@ public class NovaAPIDbContext : DbContext
     public NovaAPIDbContext(DbContextOptions<NovaAPIDbContext> options)
         : base(options)
     {
-        
+
     }
     public DbSet<Customer> Customers { get; set; }
     public DbSet<Order> Order { get; set; }

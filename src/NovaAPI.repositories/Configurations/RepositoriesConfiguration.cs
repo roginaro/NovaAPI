@@ -23,7 +23,7 @@ namespace NovaAPI.Repositories.Configuration
             services.AddScoped<IRepository<Product>, ProductRepository>();
             services.AddScoped<IRepository<Order>, OrderRepository>();
             services.AddScoped<IRepository<OrderProduct>, OrderProductRepository>();
-            
+
 
             return services;
         }

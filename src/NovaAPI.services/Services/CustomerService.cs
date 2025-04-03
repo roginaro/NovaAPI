@@ -2,7 +2,6 @@
 using NovaAPI.Entities.Base;
 using NovaAPI.Entities.Models;
 using NovaAPI.Repositories.Interfaces;
-using NovaAPI.Repositories.Repositories;
 using NovaAPI.Services.Interfaces.Materials;
 
 

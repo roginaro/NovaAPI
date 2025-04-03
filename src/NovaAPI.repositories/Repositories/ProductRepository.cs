@@ -1,12 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
-using NovaAPI.Entities.Base;
+﻿using NovaAPI.Entities.Base;
 using NovaAPI.Entities.Models;
 using NovaAPI.Repositories.Contexts;
 using NovaAPI.Repositories.Interfaces;
 
 namespace NovaAPI.Repositories.Repositories
 {
-    public class ProductRepository : BaseRepository<Product> , IProductRepository
+    public class ProductRepository : BaseRepository<Product>, IProductRepository
     {
         public ProductRepository(NovaAPIDbContext context) : base(context)
         {

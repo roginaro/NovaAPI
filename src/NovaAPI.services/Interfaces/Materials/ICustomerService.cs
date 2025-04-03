@@ -7,5 +7,5 @@ namespace NovaAPI.Services.Interfaces.Materials
     {
         Task<ServiceOutput<Customer>> Update(Customer customer);
     }
-   
+
 }

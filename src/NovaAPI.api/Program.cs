@@ -1,6 +1,6 @@
-using NovaAPI.Services.Configuration;
-using NovaAPI.Repositories.Settings;
 using NovaAPI.Repositories.Configuration;
+using NovaAPI.Repositories.Settings;
+using NovaAPI.Services.Configuration;
 
 
 var builder = WebApplication.CreateBuilder(args);

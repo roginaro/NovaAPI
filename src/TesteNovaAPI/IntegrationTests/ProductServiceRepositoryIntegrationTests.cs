@@ -1,16 +1,10 @@
 ﻿using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Migrations;
 using NovaAPI.Entities.Models;
 using NovaAPI.Repositories.Contexts;
 using NovaAPI.Repositories.Repositories;
 using NovaAPI.Services.Services;
 using NovaAPI.Services.Validations;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NovaAPI.Tests.IntegrationTests
 {

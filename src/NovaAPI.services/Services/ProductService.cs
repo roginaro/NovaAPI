@@ -2,13 +2,7 @@
 using NovaAPI.Entities.Base;
 using NovaAPI.Entities.Models;
 using NovaAPI.Repositories.Interfaces;
-using NovaAPI.Repositories.Repositories;
 using NovaAPI.Services.Interfaces.Materials;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NovaAPI.Services.Services
 {

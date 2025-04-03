@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace NovaAPI.Api.ViewModels
+﻿namespace NovaAPI.Api.ViewModels
 {
     public class ProductViewModel
     {
@@ -9,6 +7,6 @@ namespace NovaAPI.Api.ViewModels
         public string Description { get; set; }
         public decimal Price { get; set; }
         public string Image { get; set; }
-       
+
     }
 }

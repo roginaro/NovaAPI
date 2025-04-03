@@ -3,7 +3,6 @@ using NovaAPI.Api.ViewModels;
 using NovaAPI.Entities.Base;
 using NovaAPI.Entities.Models;
 using NovaAPI.Services.Interfaces.Materials;
-using NovaAPI.Services.Services;
 
 namespace NovaAPI.Api.Controllers
 {
@@ -64,7 +63,7 @@ namespace NovaAPI.Api.Controllers
         {
             var serviceOutput = await _productService.Update(new Product()
             {
-                Name= product.Name,
+                Name = product.Name,
                 Description = product.Description,
                 Price = product.Price,
                 Image = product.Image,

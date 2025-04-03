@@ -1,13 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NovaAPI.Entities.Base;
-using NovaAPI.Entities.Models;
 using NovaAPI.Repositories.Contexts;
 using NovaAPI.Repositories.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NovaAPI.Repositories.Repositories
 {
@@ -50,10 +44,10 @@ namespace NovaAPI.Repositories.Repositories
             {
                 return new RepositoryOutput<T>() { Success = false, Message = "Entity not found" };
             }
-            return new RepositoryOutput<T>() { Success = true, Message = "Add Success",Data= entity };
-            
+            return new RepositoryOutput<T>() { Success = true, Message = "Add Success", Data = entity };
+
         }
-       
+
         public async Task<RepositoryOutput<T>> Remove(int id)
         {
             if (id < 0)
@@ -66,7 +60,7 @@ namespace NovaAPI.Repositories.Repositories
                 return new RepositoryOutput<T>() { Success = false, Message = "Entity not found" };
             }
             _dbSet.Remove(entity.Data);
-            var  returnSavechanges = await _context.SaveChangesAsync();
+            var returnSavechanges = await _context.SaveChangesAsync();
 
             if (returnSavechanges == 0)
             {
@@ -75,6 +69,6 @@ namespace NovaAPI.Repositories.Repositories
             return new RepositoryOutput<T>() { Success = true, Message = "Remove Success" };
         }
 
-        
+
     }
 }

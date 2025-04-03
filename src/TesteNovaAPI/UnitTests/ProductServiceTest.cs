@@ -1,11 +1,10 @@
-﻿using Moq;
-using NovaAPI.Services.Services;
-using NovaAPI.Repositories.Interfaces;
-using NovaAPI.Entities.Models;
+﻿using FluentAssertions;
 using FluentValidation;
+using Moq;
 using NovaAPI.Entities.Base;
-using FluentAssertions;
-using Microsoft.AspNetCore.Mvc;
+using NovaAPI.Entities.Models;
+using NovaAPI.Repositories.Interfaces;
+using NovaAPI.Services.Services;
 
 namespace NovaAPI.Tests.UnitTests
 {
@@ -37,7 +36,7 @@ namespace NovaAPI.Tests.UnitTests
             result.Data.Should().BeEquivalentTo(validProduct);
             result.Errors.Should().BeNull();
 
-            mockProductRepository.Verify(r => r.Add(validProduct), Times.Once); 
+            mockProductRepository.Verify(r => r.Add(validProduct), Times.Once);
         }
 
         [Fact]

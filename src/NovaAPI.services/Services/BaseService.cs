@@ -1,8 +1,6 @@
 ﻿using FluentValidation;
 using NovaAPI.Entities.Base;
-using NovaAPI.Entities.Models;
 using NovaAPI.Repositories.Interfaces;
-using NovaAPI.Repositories.Repositories;
 using NovaAPI.Services.Interfaces.Materials;
 
 namespace NovaAPI.Services.Services
@@ -42,7 +40,7 @@ namespace NovaAPI.Services.Services
             {
                 serviceOutput.Message = repositoryOutput.Message;
                 serviceOutput.Errors = new List<ErrorBase> { new ErrorBase { Message = repositoryOutput.Message } };
-                return serviceOutput;   
+                return serviceOutput;
             }
             serviceOutput.Data = repositoryOutput.Data;
             serviceOutput.Message = repositoryOutput.Message;
@@ -80,7 +78,7 @@ namespace NovaAPI.Services.Services
 
         }
 
-       
+
 
     }
 }

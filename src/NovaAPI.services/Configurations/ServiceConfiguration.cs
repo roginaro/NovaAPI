@@ -1,7 +1,6 @@
 ﻿using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using NovaAPI.Entities.Models;
-using NovaAPI.Repositories.Interfaces;
 using NovaAPI.Services.Interfaces.Materials;
 using NovaAPI.Services.Services;
 using NovaAPI.Services.Validations;
