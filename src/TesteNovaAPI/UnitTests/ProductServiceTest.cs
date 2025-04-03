@@ -24,10 +24,10 @@ namespace NovaAPI.Tests.UnitTests
             mockValidator.Setup(v => v.Validate(validProduct))
                 .Returns(new FluentValidation.Results.ValidationResult()); // Sem erros de validação
 
-            mockRepository.Setup(r => r.Add(validProduct))
+            mockProductRepository.Setup(r => r.Add(validProduct))
                 .ReturnsAsync(new RepositoryOutput<Product> { Success = true, Data = validProduct });
 
-            var service = new ProductService(mockRepository.Object, mockValidator.Object, mockProductRepository.Object);
+            var service = new ProductService(mockProductRepository.Object, mockValidator.Object);
 
             // Act
             var result = await service.Add(validProduct);
@@ -37,7 +37,7 @@ namespace NovaAPI.Tests.UnitTests
             result.Data.Should().BeEquivalentTo(validProduct);
             result.Errors.Should().BeNull();
 
-            mockRepository.Verify(r => r.Add(validProduct), Times.Once); // Verificando se o repositório foi chamado
+            mockProductRepository.Verify(r => r.Add(validProduct), Times.Once); 
         }
 
         [Fact]
@@ -59,7 +59,7 @@ namespace NovaAPI.Tests.UnitTests
             mockValidator.Setup(v => v.Validate(invalidProduct))
                 .Returns(new FluentValidation.Results.ValidationResult(validationErrors));
 
-            var service = new ProductService(mockRepository.Object, mockValidator.Object, mockProductRepository.Object);
+            var service = new ProductService(mockProductRepository.Object, mockValidator.Object);
 
             // Act
             var result = await service.Add(invalidProduct);
@@ -72,7 +72,7 @@ namespace NovaAPI.Tests.UnitTests
             result.Errors.Should().Contain(e => e.Message == "Name is required");
             result.Errors.Should().Contain(e => e.Message == "Description is required");
 
-            mockRepository.Verify(r => r.Add(invalidProduct), Times.Never); // Verificando que o repositório não foi chamado.
+            mockProductRepository.Verify(r => r.Add(invalidProduct), Times.Never); // Verificando que o repositório não foi chamado.
         }
 
         [Fact]
@@ -91,7 +91,7 @@ namespace NovaAPI.Tests.UnitTests
             mockProductRepository.Setup(r => r.Update(validProduct))
                 .ReturnsAsync(new RepositoryOutput<Product> { Success = true, Data = validProduct });
 
-            var service = new ProductService(mockRepository.Object, mockValidator.Object, mockProductRepository.Object);
+            var service = new ProductService(mockProductRepository.Object, mockValidator.Object);
 
             //Act
             var result = await service.Update(validProduct);
@@ -124,7 +124,7 @@ namespace NovaAPI.Tests.UnitTests
             mockValidator.Setup(v => v.Validate(invalidProduct))
                 .Returns(new FluentValidation.Results.ValidationResult(validationErrors));
 
-            var service = new ProductService(mockRepository.Object, mockValidator.Object, mockProductRepository.Object);
+            var service = new ProductService(mockProductRepository.Object, mockValidator.Object);
 
             //Act
             var result = await service.Update(invalidProduct);

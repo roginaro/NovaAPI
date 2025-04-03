@@ -1,7 +1,6 @@
 ﻿using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Moq;
 using NovaAPI.Entities.Models;
 using NovaAPI.Repositories.Contexts;
 using NovaAPI.Repositories.Repositories;
@@ -35,7 +34,7 @@ namespace NovaAPI.Tests.IntegrationTests
                 var repository = new ProductRepository(context);
                 var productValidation = new ProductValidation();
 
-                var service = new ProductService(repository, productValidation); // Passando o ProductRepository duas vezes
+                var service = new ProductService(repository, productValidation);
 
                 var productValid = new Product { Name = "Test Product", Description = "Test Description", Price = 10.0m, Image = "imag35.jpg" };
                 var productNameNull = new Product { Name = "Test Product", Description = "Test Description", Price = 10.0m, Image = "imag34.jpr" };
@@ -47,9 +46,9 @@ namespace NovaAPI.Tests.IntegrationTests
 
                 // Assert
                 resultValid.Success.Should().BeTrue();
-                resultNameNull.Success.Should().BeTrue();
+                resultNameNull.Success.Should().BeFalse();
                 context.Set<Product>().Should().Contain(productValid);
-                context.Set<Product>().Should().Contain(productNameNull);
+                context.Set<Product>().Should().NotContain(productNameNull);
             }
         }
     }
