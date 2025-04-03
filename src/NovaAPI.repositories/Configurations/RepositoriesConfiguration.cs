@@ -17,9 +17,7 @@ namespace NovaAPI.Repositories.Configuration
         {
             services.AddApplicationRepositories(databaseSettings);
 
-            services.AddScoped<ICustomerRepository, CustomerRepository>();
             services.AddScoped<IRepository<Customer>, CustomerRepository>();
-            services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IRepository<Product>, ProductRepository>();
             services.AddScoped<IRepository<Order>, OrderRepository>();
             services.AddScoped<IRepository<OrderProduct>, OrderProductRepository>();

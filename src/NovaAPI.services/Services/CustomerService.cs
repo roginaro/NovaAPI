@@ -9,14 +9,12 @@ namespace NovaAPI.Services.Services
 {
     public class CustomerService : BaseService<Customer>, ICustomerService
     {
-        protected readonly ICustomerRepository _customerRepository;
 
-        public CustomerService(IRepository<Customer> entityRepository, IValidator<Customer> costumerValidator, ICustomerRepository customerRepository) : base(entityRepository, costumerValidator)
+        public CustomerService(IRepository<Customer> entityRepository, IValidator<Customer> costumerValidator) : base(entityRepository, costumerValidator)
         {
-            _customerRepository = customerRepository;
         }
 
-        public async Task<ServiceOutput<Customer>> Update(Customer customer)
+        public override async Task<ServiceOutput<Customer>> Update(Customer customer)
         {
             ServiceOutput<Customer> serviceOutput = new();
             var validationResult = _entityValidator.Validate(customer);
@@ -31,7 +29,7 @@ namespace NovaAPI.Services.Services
                                         }).ToList();
                 return serviceOutput;
             }
-            var repositoryOutput = await _customerRepository.Update(customer);
+            var repositoryOutput = await _entityRepository.Update(customer);
             if (!repositoryOutput.Success)
             {
                 serviceOutput.Message = repositoryOutput.Message;
@@ -42,5 +40,6 @@ namespace NovaAPI.Services.Services
             serviceOutput.Message = repositoryOutput.Message;
             return serviceOutput;
         }
+
     }
 }

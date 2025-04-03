@@ -6,14 +6,13 @@ using NovaAPI.Services.Interfaces.Materials;
 
 namespace NovaAPI.Services.Services
 {
-    public class ProductService : BaseService<Product>, IProductService
+    public class ProductService : BaseService<Product>
     {
-        private IProductRepository _productRepository => (IProductRepository)_entityRepository;
-        public ProductService(IProductRepository productRepository, IValidator<Product> productValidator) : base(productRepository, productValidator)
+        public ProductService(IRepository<Product> productRepository, IValidator<Product> productValidator) : base(productRepository, productValidator)
         {
         }
 
-        public async Task<ServiceOutput<Product>> Update(Product product)
+        public override async Task<ServiceOutput<Product>> Update(Product product)
         {
             ServiceOutput<Product> serviceOutput = new();
             var validationResult = _entityValidator.Validate(product);
@@ -28,7 +27,7 @@ namespace NovaAPI.Services.Services
                                         }).ToList();
                 return serviceOutput;
             }
-            var repositoryOutput = await _productRepository.Update(product);
+            var repositoryOutput = await _entityRepository.Update(product);
             if (!repositoryOutput.Success)
             {
                 serviceOutput.Message = repositoryOutput.Message;

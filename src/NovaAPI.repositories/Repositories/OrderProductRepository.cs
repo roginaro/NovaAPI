@@ -1,4 +1,5 @@
-﻿using NovaAPI.Entities.Models;
+﻿using NovaAPI.Entities.Base;
+using NovaAPI.Entities.Models;
 using NovaAPI.Repositories.Contexts;
 
 namespace NovaAPI.Repositories.Repositories
@@ -9,5 +10,9 @@ namespace NovaAPI.Repositories.Repositories
         {
         }
 
+        public override Task<RepositoryOutput<OrderProduct>> Update(OrderProduct entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

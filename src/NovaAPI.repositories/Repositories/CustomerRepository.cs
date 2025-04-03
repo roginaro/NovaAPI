@@ -5,7 +5,7 @@ using NovaAPI.Repositories.Interfaces;
 
 namespace NovaAPI.Repositories.Repositories
 {
-    public class CustomerRepository : BaseRepository<Customer>, ICustomerRepository
+    public class CustomerRepository : BaseRepository<Customer>
     {
         public CustomerRepository(NovaAPIDbContext context) : base(context)
         {
@@ -21,7 +21,7 @@ namespace NovaAPI.Repositories.Repositories
             return new RepositoryOutput<Customer>() { Success = true, Message = "Add Success", Data = entityReturn };
 
         }
-        public async Task<RepositoryOutput<Customer>> Update(Customer custumer)
+        public override async Task<RepositoryOutput<Customer>> Update(Customer custumer)
         {
             var entityFromDB = await this.GetByEntity(custumer);
             if (!entityFromDB.Success)

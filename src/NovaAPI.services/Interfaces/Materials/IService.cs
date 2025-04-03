@@ -1,4 +1,5 @@
 ﻿using NovaAPI.Entities.Base;
+using NovaAPI.Entities.Models;
 
 namespace NovaAPI.Services.Interfaces.Materials
 {
@@ -8,6 +9,7 @@ namespace NovaAPI.Services.Interfaces.Materials
         Task<ServiceOutput<T>> Get(int id);
         Task<ServiceOutput<T>> Add(T entity);
         Task<ServiceOutput<T>> Delete(int id);
+        Task<ServiceOutput<T>> Update(T entity);
     }
 
 }

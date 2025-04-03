@@ -78,7 +78,7 @@ namespace NovaAPI.Services.Services
 
         }
 
-
-
+        public abstract Task<ServiceOutput<T>> Update(T entity);
+        
     }
 }

@@ -15,7 +15,7 @@ namespace NovaAPI.Tests.UnitTests
         {
             // Arrange
             var mockRepository = new Mock<IRepository<Product>>();
-            var mockProductRepository = new Mock<IProductRepository>();
+            var mockIRepository = new Mock<IRepository<Product>>();
             var mockValidator = new Mock<IValidator<Product>>();
 
             var validProduct = new Product { Name = "Test Product", Description = "Test Description", Price = 10.0m, Image = "test.jpg" };
@@ -23,10 +23,10 @@ namespace NovaAPI.Tests.UnitTests
             mockValidator.Setup(v => v.Validate(validProduct))
                 .Returns(new FluentValidation.Results.ValidationResult()); // Sem erros de validação
 
-            mockProductRepository.Setup(r => r.Add(validProduct))
+            mockIRepository.Setup(r => r.Add(validProduct))
                 .ReturnsAsync(new RepositoryOutput<Product> { Success = true, Data = validProduct });
 
-            var service = new ProductService(mockProductRepository.Object, mockValidator.Object);
+            var service = new ProductService(mockIRepository.Object, mockValidator.Object);
 
             // Act
             var result = await service.Add(validProduct);
@@ -36,15 +36,14 @@ namespace NovaAPI.Tests.UnitTests
             result.Data.Should().BeEquivalentTo(validProduct);
             result.Errors.Should().BeNull();
 
-            mockProductRepository.Verify(r => r.Add(validProduct), Times.Once);
+            mockIRepository.Verify(r => r.Add(validProduct), Times.Once);
         }
 
         [Fact]
         public async Task Add_InvalidProduct_ReturnsFailedServiceOutputWithErrors()
         {
             // Arrange
-            var mockRepository = new Mock<IRepository<Product>>();
-            var mockProductRepository = new Mock<IProductRepository>();
+            var mockIRepositoryProduct = new Mock<IRepository<Product>>();
             var mockValidator = new Mock<IValidator<Product>>();
 
             var invalidProduct = new Product { Name = "", Description = "", Price = 0, Image = "invalid" };
@@ -58,7 +57,7 @@ namespace NovaAPI.Tests.UnitTests
             mockValidator.Setup(v => v.Validate(invalidProduct))
                 .Returns(new FluentValidation.Results.ValidationResult(validationErrors));
 
-            var service = new ProductService(mockProductRepository.Object, mockValidator.Object);
+            var service = new ProductService(mockIRepositoryProduct.Object, mockValidator.Object);
 
             // Act
             var result = await service.Add(invalidProduct);
@@ -71,15 +70,14 @@ namespace NovaAPI.Tests.UnitTests
             result.Errors.Should().Contain(e => e.Message == "Name is required");
             result.Errors.Should().Contain(e => e.Message == "Description is required");
 
-            mockProductRepository.Verify(r => r.Add(invalidProduct), Times.Never); // Verificando que o repositório não foi chamado.
+            mockIRepositoryProduct.Verify(r => r.Add(invalidProduct), Times.Never); // Verificando que o repositório não foi chamado.
         }
 
         [Fact]
         public async Task Update_ValidProduct_ReturnsSuccessfulServiceOutput()
         {
             //Arrange
-            var mockRepository = new Mock<IRepository<Product>>();
-            var mockProductRepository = new Mock<IProductRepository>();
+            var mockIRepositoryProduct = new Mock<IRepository<Product>>();
             var mockValidator = new Mock<IValidator<Product>>();
 
             var validProduct = new Product { Name = "Test Product", Description = "Test Description", Price = 10.0m, Image = "test.jpg" };
@@ -87,10 +85,10 @@ namespace NovaAPI.Tests.UnitTests
             mockValidator.Setup(v => v.Validate(validProduct))
                 .Returns(new FluentValidation.Results.ValidationResult());
 
-            mockProductRepository.Setup(r => r.Update(validProduct))
+            mockIRepositoryProduct.Setup(r => r.Update(validProduct))
                 .ReturnsAsync(new RepositoryOutput<Product> { Success = true, Data = validProduct });
 
-            var service = new ProductService(mockProductRepository.Object, mockValidator.Object);
+            var service = new ProductService(mockIRepositoryProduct.Object, mockValidator.Object);
 
             //Act
             var result = await service.Update(validProduct);
@@ -100,7 +98,7 @@ namespace NovaAPI.Tests.UnitTests
             result.Data.Should().BeEquivalentTo(validProduct);
             result.Errors.Should().BeNull();
 
-            mockProductRepository.Verify(r => r.Update(validProduct), Times.Once);
+            mockIRepositoryProduct.Verify(r => r.Update(validProduct), Times.Once);
 
         }
 
@@ -108,12 +106,9 @@ namespace NovaAPI.Tests.UnitTests
         public async Task Update_InvalidProduct_ReturnsFailedServiceOutputWithErrors()
         {
             //Arrange
-            var mockRepository = new Mock<IRepository<Product>>();
-            var mockProductRepository = new Mock<IProductRepository>();
+            var mockIRepositoryProduct = new Mock<IRepository<Product>>();
             var mockValidator = new Mock<IValidator<Product>>();
-
             var invalidProduct = new Product { Name = "", Description = "", Price = 0, Image = "invalid" };
-
             var validationErrors = new List<FluentValidation.Results.ValidationFailure>
         {
             new FluentValidation.Results.ValidationFailure("Name", "Name is required"),
@@ -122,8 +117,7 @@ namespace NovaAPI.Tests.UnitTests
 
             mockValidator.Setup(v => v.Validate(invalidProduct))
                 .Returns(new FluentValidation.Results.ValidationResult(validationErrors));
-
-            var service = new ProductService(mockProductRepository.Object, mockValidator.Object);
+            var service = new ProductService(mockIRepositoryProduct.Object, mockValidator.Object);
 
             //Act
             var result = await service.Update(invalidProduct);
@@ -136,7 +130,7 @@ namespace NovaAPI.Tests.UnitTests
             result.Errors.Should().Contain(e => e.Message == "Name is required");
             result.Errors.Should().Contain(e => e.Message == "Description is required");
 
-            mockProductRepository.Verify(r => r.Update(invalidProduct), Times.Never);
+            mockIRepositoryProduct.Verify(r => r.Update(invalidProduct), Times.Never);
 
         }
 

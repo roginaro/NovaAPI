@@ -11,5 +11,7 @@ namespace NovaAPI.Repositories.Interfaces
         Task<RepositoryOutput<T>> GetById(int id);
 
         Task<RepositoryOutput<T>> Remove(int id);
+
+        Task<RepositoryOutput<T>> Update(T entity);
     }
 }

@@ -69,6 +69,7 @@ namespace NovaAPI.Repositories.Repositories
             return new RepositoryOutput<T>() { Success = true, Message = "Remove Success" };
         }
 
+        public abstract Task<RepositoryOutput<T>> Update(T entity);
 
     }
 }

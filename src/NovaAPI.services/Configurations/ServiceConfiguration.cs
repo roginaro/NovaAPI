@@ -10,7 +10,6 @@ namespace NovaAPI.Services.Configuration
     {
         public static IServiceCollection AddServicesConfiguration(this IServiceCollection services)
         {
-            services.AddScoped<ICustomerService, CustomerService>();
             services.AddScoped<IService<Customer>, CustomerService>();
             services.AddScoped<IService<Order>, OrderService>();
             services.AddScoped<IService<OrderProduct>, OrderProductService>();
