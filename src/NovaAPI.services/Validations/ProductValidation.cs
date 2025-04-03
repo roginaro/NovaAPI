@@ -22,6 +22,9 @@ namespace NovaAPI.Services.Validations
             RuleFor(x => x.Image)
                 .Must(x => ValidateImage(x))
                 .WithMessage("Bisonho informe uma imagem válida");
+            RuleFor(x => x.Price)
+                .GreaterThan(0)
+                .WithMessage("Bisonho informe o preço do produto");
         }
         private bool ValidateImage(string image)
         {

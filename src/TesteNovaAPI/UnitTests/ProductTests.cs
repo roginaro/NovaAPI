@@ -5,7 +5,7 @@ namespace NovaAPI.Tests.UnitTests
     public class ProductTests
     {
         [Fact]
-        public void Price_DeveSerPositivo()
+        public void Price_HasToBe_Positive()
         {
             // Arrange
             var product = new Product { Price = 99.99m };
@@ -18,7 +18,7 @@ namespace NovaAPI.Tests.UnitTests
         }
 
         [Fact]
-        public void Name_DeveSerValido()
+        public void Name_IsNotNullOrNotEmpty()
         {
             // Arrange
             var product = new Product { Name = "Produto Teste" };
